@@ -1,6 +1,5 @@
 from flask import render_template, request, redirect
 
-from .extensions import db
 from core import app, db
 from core.models import Link
 
