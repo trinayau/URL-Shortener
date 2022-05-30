@@ -12,6 +12,9 @@ flask-migrate = "*"
 python-decouple = "*"
 psycopg2 = "*"
 autopep8 = "*"
+pip = "*"
+install = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
