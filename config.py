@@ -1,4 +1,5 @@
 from decouple import config
+from os import environ
 
 DATABASE_URI = config("DATABASE_URL")
 if DATABASE_URI.startswith("postgres://"):
@@ -9,7 +10,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = config('SECRET_KEY', default='guess-me')
-    SQLALCHEMY_DATABASE_URI = DATABASE_URI
+    SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URL') or 'sqlite:///myDB.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class ProductionConfig(Config):
