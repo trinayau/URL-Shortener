@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(140, 251, 229);
+  text-align: center;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+.input {
+  padding: 10px 50px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: black;
+  color: aquamarine;
+}
