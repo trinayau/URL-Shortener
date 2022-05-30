@@ -1,4 +1,8 @@
-{% extends 'index.html'%} {% block content %} Old Link: {{ original_url }}
+{% extends 'index.html'%} 
+{% block content %} 
+<h1>Here's your new link:</h1>
+Old Link: {{ original_url }}
 <br />
 New Link: {{ url_for('short.redirect_to_url', short_url=new_link,
-_external=True) }} {% endblock %}
+_external=True) }} 
+{% endblock %}

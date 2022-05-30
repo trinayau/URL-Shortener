@@ -1,17 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Poppins&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif
+}
 body {
-  background-color: rgb(140, 251, 229);
+  background-color: #faedcd;
   text-align: center;
 }
 
 h1 {
-  font-size: 100px;
+  padding-top: 20px;
+  font-size: 60px;
+  margin: 0;
+  color: #283618
 }
 
-.input {
+input[type="text"] {
   padding: 10px 50px;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
-  border-radius: 20px;
-  background-color: black;
-  color: aquamarine;
+  border-radius: 15px;
+  background-color: #a3b18a;
+  color: #606c38;
+  border: 0px;
+  margin-bottom: 20px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 5px;
+  color: #606c38;
+  border: 0px;
+  transition: background-color 0.5s ease;
+}
+
+input[type="submit"]:hover{
+  background-color: #606c38;
+  color: #faedcd;
+}
+
+nav li{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a{
+  color: #283618;
+  text-decoration: none;
+}
+
+.container{
+  text-align: center;
+}
+.table {
+  margin-left: auto;
+  margin-right: auto;
 }

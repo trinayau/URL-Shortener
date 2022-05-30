@@ -1,4 +1,36 @@
-{% extends 'index.html'%} {% block content %}{% for link in links %} Original
-Url: {{ link.original_url }} - Short URL: {{ link.short_url }} - Visits: {{
-link.visits }} <br />
-{% endfor %} {% endblock %}
+{% extends 'index.html'%} 
+{% block head %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+     {% endblock%}
+{% block content %}
+<h1>Stats for each link:</h1>
+<section class="section">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Visits</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Visits</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for link in links %}
+                    <tr>
+                        <td>{{ link.original_url }}</td>
+                        <td>{{ url_for('short.redirect_to_url', short_url=link.short_url, _external=True) }}</td>
+                        <td>{{ link.visits }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section> {% endblock %}
