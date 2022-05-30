@@ -8,6 +8,8 @@ flask = "*"
 python-dotenv = "*"
 flask-sqlalchemy = "*"
 gunicorn = "*"
+flask-migrate = "*"
+python-decouple = "*"
 
 [dev-packages]
 

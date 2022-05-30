@@ -1,11 +1,10 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import render_template, request, redirect
 
 from .extensions import db
-from .models import Link
+from core import app, db
+from core.models import Link
 
-short = Blueprint('short', __name__)
-
-@short.route('/<short_url>')
+@app.route('/<short_url>')
 def redirect_to_url(short_url):
     link = Link.query.filter_by(short_url=short_url).first_or_404()
 
@@ -13,11 +12,11 @@ def redirect_to_url(short_url):
     db.session.commit()
     return redirect(link.original_url)
 
-@short.route('/')
+@app.route('/')
 def index():
     return render_template('index.html')
 
-@short.route('/add_link', methods=['POST'])
+@app.route('/add_link', methods=['POST'])
 def add_link():
     original_url = request.form['original_url']
     link = Link(original_url=original_url)
@@ -26,13 +25,13 @@ def add_link():
 
     return render_template('link_added.html', new_link=link.short_url, original_url=link.original_url)
 
-@short.route('/stats')
+@app.route('/stats')
 def stats():
     links = Link.query.all()
 
     return render_template('stats.html', links=links)
 
 
-@short.errorhandler(404)
+@app.errorhandler(404)
 def page_not_found(e):
-    return '', 404
+    return '404', 404
